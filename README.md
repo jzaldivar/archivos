@@ -44,6 +44,8 @@ Ringo Star
 
 y graba el archivo.
 
+> ***Observación***: Escribe tú mismo todo el código que se muestra, _no lo copies y lo pegues_. Escribir código es didáctico y una buena oportunidad de aprendizaje, no te prives de ella.
+
 A continuación, crea el archivo `beatles.py` y escribe el siguiente código:
 
 ```python
@@ -55,6 +57,8 @@ f.close()
 ```
 
 y ejecútalo.
+
+Ya que estamos en esto, vamos a crear un _commit_ con los cambios que acabamos de hacer. Usa el mensaje "`Primer ejemplo con archivos`" para tu _commit_.
 
 Puedes observar que *los archivos son iterables* y que *cada una de las líneas* del archivo *es un elemento* del iterable.
 
@@ -75,6 +79,8 @@ f.close()
 
 Puedes observar, al final de cada línea, el carácter `"\n"`. 
 
+Es una buena práctica hacer un _commit_ después de cada cambio significativo, así que haremos un nuevo _commit_ usando, por ejemplo, un mensaje como "`Usar repr para ver los \n`".
+
 Dependiendo del sistema operativo, algunos archivos de texto pueden terminar cada línea con la combinación de caracteres `"\r\n"`. También es posible que la última línea no tenga un carácter de fin de línea, dependiendo de cómo se haya creado.
 
 Podemos usar el método `.strip()` de la clase `str` para eliminar ese carácter de salto de línea al final. `.strip()` también elimina la combinación `"\r\n"`. En realidad, `.strip()` elimina el [espacio en blanco](https://docs.python.org/3/library/string.html#string.whitespace) al principio y al final de la cadena, como se indica en la [documentación de Python](https://docs.python.org/3/library/stdtypes.html#str.strip). 
@@ -88,7 +94,7 @@ for line in f:
 f.close()
 ```
 
-ejecútalo y compara la nueva salida con la salida obtenida anteriormente.
+ejecútalo y compara la nueva salida con la salida obtenida anteriormente, y haz un nuevo _commit_ ("`Quitar \n con strip`").
 
 
 ## Mejor práctica
@@ -105,6 +111,8 @@ with  open("beatles.txt", "r", encoding="utf8") as f:
 ```
 
 y ejecútalo.
+
+Y, ya lo sabes, haz un nuevo _commit_ ("`Uso de with`", por ejemplo).
 
 ***Nota***: En los ejemplos anteriores, hemos utilizado el identificador `f` (inicial de *file*) para referirnos al archivo que abrimos. Esta es una decisión arbitraria y podemos utilizar cualquier identificador válido (que siga las reglas de Python).
 
@@ -173,11 +181,11 @@ else:
     print(f"El archivo '{file}' no existe.")
 ```
 
-Escribe el código anterior en el archivo `beatles-exists-os.py` y pruébalo.
+Escribe el código anterior en el archivo `beatles-exists-os.py` y pruébalo. Después, haz un _commit_ de tus cambios.
 
 También podemos usar el módulo más moderno (y orientado a objetos) `pathlib` [(documentación)](https://docs.python.org/3/library/pathlib.html). 
 
-Para probarlo, crea un nuevo archivo `beatles-exists-pathlib.py` y escribe y ejecuta el siguiente código:
+Para probarlo, crea un nuevo archivo `beatles-exists-pathlib.py`, escribe y ejecuta el siguiente código y haz un _commit_ de tus cambios:
 
 ```python
 from pathlib import Path
@@ -201,9 +209,9 @@ for file in files:
 
 Escribiremos una función que analice la frecuencia de las diferentes palabras contenidas en un archivo. La función recibirá como parámetros el nombre del archivo a analizar y el nombre del archivo de salida. En el archivo de salida, se escribira, en cada línea, una palabra, seguida de dos puntos y la cantidad de veces que la misma aparece en el archivo de entrada, en orden de mayor frecuencia de aparición. Adicionalmente, la función regresará como valor un diccionario con las palabras (clave) y sus frecuencias (valor), en el mismo orden.
 
-Prueba la función con el archivo `Asimov, Isaac - Cómo ocurrió.txt` de la carpeta `data`. Imprimir las diez palabras más frecuentes y las veces que éstas aparecen en el archivo.
+Prueba la función con el archivo `Asimov, Isaac - Cómo ocurrió.txt` de la carpeta `data`. Imprime también las diez palabras más frecuentes y las veces que éstas aparecen en el archivo.
 
-Crea el archivo `frecuencia.py` y escribe el siguiente código (**escribe**, no copies y pegues; escribir código es una oportunidad de aprendizaje):
+Crea el archivo `frecuencia.py` y escribe el siguiente código (enfatizo de nuevo: **escribe**, no copies y pegues; recuerda: escribir código es una oportunidad de aprendizaje):
 
 ```python
 def frecuencia_palabras_en_archivo(archivo_entrada, archivo_salida):
@@ -270,10 +278,14 @@ def main():
 main()
 ```
 
+Prueba el programa, revisa su funcionamiento. ¿Entiendes qué hace cada instrucción? Si tienes dudas, puedes utilizar el depurador para ejecutar el programa paso a paso y ver lo que va sucediendo en "cámara lenta". Si aún no te queda clara alguna instrucción, pregunta. No te quedes con la duda.
+
+Al final, haz el respectivo _commit_ de este ejemplo.
+
 
 ## Ejemplo: Encriptar un archivo
 
-El siguiente ejemplo utiliza una técnica muy sencilla de encriptamiento por desplazamiento. A cada carácter se le aplica un desplazamiento `x` y se reemplaza por el carácter que corresponda a dicho desplazamiento. Por ejemplo, si el desplazamiento es `2`, cada letra "A" se reemplazará por "C"; las "B" por "D", etc.
+El siguiente ejemplo utiliza una técnica muy sencilla de encriptamiento por desplazamiento. A cada carácter se le aplica un desplazamiento `x` y se reemplaza por el carácter que corresponda a dicho desplazamiento. Por ejemplo, si el desplazamiento es `2`, cada letra "A" se reemplazará por "C"; las "B" por "D", etc. El desplazamiento puede ser positivo o negativo.
 
 Escribe el siguiente código en el archivo `encriptar.py`:
 
@@ -324,6 +336,10 @@ Podrás observar el resultado en el archivo `-CRIPTO` que se creará, igualmente
 
 Puedes probar usando diferentes desplazamientos en tu programa de ejemplo.
 
+Haz un _commit_ de este nuevo ejemplo.
+
+De nueva cuenta, analiza el código que escribiste, verifica que entiendes cómo funcionan y por qué se utilizaron cada una de las instrucciones. Usa el depurador y, al final, pregunta cualquier duda que tengas.
+
 ¿Puedes codificar un programa que decifre (o desencripte) el archivo encriptado que se generó? Piénsalo un momento...
 
 Y, después, intenta "*reencriptar*" el archivo ya encriptado usando el negativo del desplazamiento que usaste para encriptarlo. Observa el archivo resultante. ¿Era lo que habías pensado hacer? Por cierto, ¿se recupera el archivo original sin pérdidas?
@@ -344,6 +360,8 @@ Procesarlo y generar un archivo `data\promedios.txt` con el formato:
 El formato consiste en el apellido del alumno en mayúsculas, separado por una coma de su nombre, dos puntos y, enseguida, el promedio de las calificaciones a un decimal.
 
 Todos los alumnos tienen un solo nombre y un solo apellido.
+
+No olvides hacer el _commit_ de tu solución.
 
 ### Entregable
 
