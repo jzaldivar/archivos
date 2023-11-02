@@ -348,3 +348,13 @@ Todos los alumnos tienen un solo nombre y un solo apellido.
 ### Entregable
 
 Se entregará por Canvas el informe usual en PDF, únicamente para el programa del ejercicio de las calificaciones (no de los ejemplos), con el contenido usual: enunciado, análisis, etc., y, obviamente, sus correspondientes portada y conclusiones.
+
+#### Reflexiones
+
+A lo largo del texto de esta actividad vienen varias preguntas. A diferencia de cuando usamos un cuaderno de Jupyter, aquí no podemos contestarlas en alguna celda ex profeso, así que se añadirá al reporte en PDF una sección **Reflexiones**, antes de las conclusiones, en la que darás respuesta a dichas preguntas.
+
+#### Pruebas de ejecución
+
+Como prueba de ejecución, se utilizará una captura de pantalla mostrando el contenido del archivo `data\promedios.txt` creado por el programa y el contenido de la carpeta `data` en el explorador de archivos de VS Code.
+
+Igualmente, otra captura de pantalla con la historia de _commits_ en GitHub.
