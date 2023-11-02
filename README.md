@@ -326,7 +326,7 @@ Puedes probar usando diferentes desplazamientos en tu programa de ejemplo.
 
 ¿Puedes codificar un programa que decifre (o desencripte) el archivo encriptado que se generó? Piénsalo un momento...
 
-Y, después, intenta "reencriptar el archivo ya encriptado usando el negativo del desplazamiento que usaste para encriptarlo. Observa el archivo resultante. ¿Era lo que habías pensado hacer? Por cierto, ¿se recupera el archivo original sin pérdidas?
+Y, después, intenta "*reencriptar*" el archivo ya encriptado usando el negativo del desplazamiento que usaste para encriptarlo. Observa el archivo resultante. ¿Era lo que habías pensado hacer? Por cierto, ¿se recupera el archivo original sin pérdidas?
 
 
 ## Ejercicio
