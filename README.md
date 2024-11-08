@@ -14,17 +14,17 @@ Los archivos:
 Para abrir un archivo, se utiliza la función `open`:
 
 ```python
-open(nombre_archivo, modo="r", encoding=None)
+open(nombre_archivo, mode="r", encoding=None)
 ```
 
-| `modo` | Descripción |
+| `mode` | Descripción |
 |:-------:|:------------|
 | `"r"`   | Abre el archivo en modo lectura (*read*).<br>Esta es la opción predeterminada.|
 | `"w"`   | Abre el archivo en modo escritura (*write*).<br>Si el archivo ya existe, su contenido se sobreescribe.|
 | `"a"`   | Abre el archivo en modo de adición (*append*).<br>Si el archivo ya existe, lo que se escribe, se añade al final del contenido previo.|
 | `"r+"`  | Abre el archivo para leer y escribir.|
 
-De manera predeterminada, la función `open` **no** especifica la codificación que se utilizará para el archivo (valor del parámetro `encoding`, o página de códigos). Para evitar problemas con los caracteres que utilizamos para escribir en español, lo más práctico es especificar que se utilice la codificación UTF-8 (`encoding="utf8"`, notar que no lleva guión) al abrir archivos de texto. Obviamente, hay que verificar que el programa con el que se creó el archivo de texto utilice esta codificación o, en su caso, utilizar la codificación correcta al invocar la función `open`.
+De manera predeterminada, la función `open` **no** especifica la codificación que se utilizará para el archivo (valor del parámetro `encoding`, o página de códigos). Para evitar problemas con los caracteres que utilizamos para escribir en español, lo más práctico es especificar que se utilice la codificación UTF-8 (`encoding="utf-8"`) al abrir archivos de texto. Obviamente, hay que verificar que el programa con el que se creó el archivo de texto utilice esta codificación o, en su caso, utilizar la codificación correcta al invocar la función `open`.
 
 Igualmente, de manera predeterminada, los archivos se abren en **modo texto**, para abrirlos en modo binario, hay que agregar `"b"` al `modo` (`"rb"`, `"wb"`, etc.).
 
@@ -49,7 +49,7 @@ y graba el archivo.
 A continuación, crea el archivo `beatles.py` y escribe el siguiente código:
 
 ```python
-f = open("beatles.txt", "r", encoding="utf8")
+f = open("beatles.txt", "r", encoding="utf-8")
 for line in f:
     print(line)
 # Siempre hay que cerrar el archivo al terminar de trabajar con él
@@ -69,7 +69,7 @@ Lo que sucede es que cada línea del archivo de texto termina con un carácter n
 El siguiente código nos permite visualizarlo utilizando la función `repr` (*representación*). Escríbelo en un nuevo archivo (por ejemplo, `beatles2.py`), ejecútalo y observa la salida.
 
 ```python
-f = open("beatles.txt", "r", encoding="utf8")
+f = open("beatles.txt", "r", encoding="utf-8")
 for line in f:
     for caracter in line:
         print(repr(caracter), end=" ")
@@ -88,7 +88,7 @@ Podemos usar el método `.strip()` de la clase `str` para eliminar ese carácter
 Para comprobarlo, añade el método `.strip()` a tu archivo `beatles.py` para que quede como sigue:
 
 ```python
-f = open("beatles.txt", "r", encoding="utf8")
+f = open("beatles.txt", "r", encoding="utf-8")
 for line in f:
     print(line.strip())
 f.close()
@@ -104,7 +104,7 @@ Aunque el código anterior funciona, se considera una mejor práctica utilizar l
 Crea un nuevo archivo `beatles-with.py`, escribe el siguiente código:
 
 ```python
-with  open("beatles.txt", "r", encoding="utf8") as f:
+with  open("beatles.txt", "r", encoding="utf-8") as f:
     for line in f:
         print(line.strip())
 # No se necesita f.close()
@@ -218,7 +218,7 @@ def frecuencia_palabras_en_archivo(archivo_entrada, archivo_salida):
     """Analiza la frecuencia con que ocurren diferentes palabras en un archivo
     de texto."""
     frecuencias = {}
-    with open(archivo_entrada, "r", encoding="utf8") as f:
+    with open(archivo_entrada, "r", encoding="utf-8") as f:
         # Leer cada línea
         for linea in f:
             # Dejar únicamente letras y espacios
@@ -253,7 +253,7 @@ def frecuencia_palabras_en_archivo(archivo_entrada, archivo_salida):
     frecuencias = dict(items)
 
     # Escribir el archivo de salida
-    with open(archivo_salida, "w", encoding="utf8") as f:
+    with open(archivo_salida, "w", encoding="utf-8") as f:
         for palabra in frecuencias:
             linea = f"{palabra}: {frecuencias[palabra]}\n"
             f.write(linea)
@@ -317,8 +317,8 @@ def encriptar_archivo(entrada, desplazamiento):
     """
     archivo = Path(entrada)
     salida = str(archivo.with_name(archivo.stem + "-CRIPTO" + archivo.suffix))
-    with open(archivo, "r", encoding="utf8") as f_in:
-        with open(salida, "w", encoding="utf8") as f_out:
+    with open(archivo, "r", encoding="utf-8") as f_in:
+        with open(salida, "w", encoding="utf-8") as f_out:
             for linea in f_in:
                 f_out.write(encriptar(linea, desplazamiento))
 ```
